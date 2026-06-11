@@ -14,7 +14,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  background: #f1f5f9;
+  background: #c198d8;
 }
 
 .main-content {
@@ -22,8 +22,8 @@ body {
 }
 
 .navbar {
-  background: #0f172a;
-  color: white;
+  background: #452355;
+  color: rgb(255, 255, 255);
   padding: 14px 24px;
 }
 
@@ -52,23 +52,25 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
+  color: #c073ff;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .btn-register {
-  background: #2563eb;
+  background: #607fc2;
   padding: 8px 14px;
   border-radius: 8px;
 }
 
 .btn-logout {
   background: #dc2626;
-  color: white;
+  color: rgb(236, 179, 253);
   border: none;
   padding: 8px 14px;
   border-radius: 8px;
@@ -118,7 +120,7 @@ body {
 .auth-card button {
   width: 100%;
   padding: 12px;
-  background: #2563eb;
+  background: #452355;
   color: white;
   border: none;
   border-radius: 8px;
@@ -137,10 +139,15 @@ body {
 }
 
 .footer {
-  background: #0f172a;
-  color: white;
+  background: #452355;
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 18px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
