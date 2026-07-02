@@ -1,17 +1,14 @@
-
 "use client";
 
-
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-
-export default function Login() {
+export default function Register() {
 
   const router = useRouter();
 
   const [form, setForm] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -19,45 +16,45 @@ export default function Login() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const res = await fetch("/api/auth/login", {
+
+    const res = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify(form),
     });
 
     if (res.ok) {
-      router.push("/dashboard");
-      router.refresh();
+      alert("Register successful");
+      router.push("/login");
     } else {
-      alert("𝐋𝐨𝐠𝐢𝐧 𝐟𝐚𝐢𝐥𝐞𝐝");
+      alert("Register failed");
     }
   }
 
 
-
   return (
+
     <div className="auth-page">
       <form className="auth-card" onSubmit={handleSubmit}>
-        <h2 className="font-bold"> 𝐋𝐨𝐠𝐢𝐧</h2>
+        <h2> สมัครสมาชิก </h2>
         <input
-          placeholder="𝐄𝐦𝐚𝐢𝐥"
+          placeholder="Name"
+          type="text"
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          required
+        />
+        <input
+          placeholder="Email"
           type="email"
           onChange={(e) => setForm({ ...form, email: e.target.value })}
+          required
         />
         <input
-          placeholder="𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝"
+          placeholder="Password"
           type="password"
           onChange={(e) => setForm({ ...form, password: e.target.value })}
+          required
         />
-        <button>Login</button>
-
-        <p>
-          <Link href="/forgotpassword">𝐅𝐨𝐫𝐠𝐨𝐭𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝?</Link>
-        </p>
-
-        <p>
-          No account? <Link href="/𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫">
-𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫</Link>
-        </p>
+        <button>Register</button>
       </form>
     </div>
   );

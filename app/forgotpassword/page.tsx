@@ -1,24 +1,25 @@
 "use client";
-export default function forgotpassword() {
+import { useState } from "react";
+
+export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    alert("ระบบจะส่งลิงก์ Reset Password ไปที่ " + email);
+
+  }
 
   return (
-
     <div className="auth-page">
-      <form className="auth-card">
-        <h2> 𝐅𝐨𝐫𝐠𝐨𝐭 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝 </h2>
+      <form className="auth-card" onSubmit={handleSubmit}>
+        <h1>Forgot Password</h1>
         <input
-           placeholder="𝐎𝐥𝐝 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝"
-            type="text"
+          type="email"
+          placeholder="Enter your email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-        <input
-            placeholder="𝐍𝐞𝐰 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝"
-            type="password"
-       />
-       <input
-            placeholder="𝐂𝐨𝐧𝐟𝐢𝐫𝐦 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝"
-            type="password"
-       />
-      <button>𝐂𝐨𝐧𝐟𝐢𝐫𝐦</button>
+        <button>Send Reset Link</button>
       </form>
     </div>
   );
